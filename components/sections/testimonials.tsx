@@ -3,25 +3,33 @@
 import { Card } from "@/components/ui/card";
 import { FadeIn } from "@/components/animations/fade-in";
 import { Quote } from "lucide-react";
+import { WaveBackground } from "@/components/animations/background-effects";
 
 const testimonials = [
   {
-    quote: "The Public Voice NGO transformed our community through their healthcare initiatives. We now have access to quality medical care that was once out of reach.",
-    author: "Sarah Johnson",
-    role: "Community Leader",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&auto=format&fit=crop&crop=face",
+    quote: "The vocational training program by Public Voice changed my life. I now run my own tailoring business and can support my family independently.",
+    author: "Priya Sharma",
+    role: "Program Beneficiary",
+    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&auto=format&fit=crop&crop=face",
   },
   {
-    quote: "Thanks to their education programs, I was able to complete my studies and secure a better future for my family. Their impact goes beyond just education.",
-    author: "Michael Chen",
-    role: "Program Beneficiary",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&auto=format&fit=crop&crop=face",
+    quote: "Working with the HIV/AIDS prevention program has shown me how dedicated The Public Voice is to community health and awareness.",
+    author: "Dr. Rajesh Kumar",
+    role: "Healthcare Partner",
+    image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=400&auto=format&fit=crop&crop=face",
   },
+  {
+    quote: "The transparency provided by Donor Protocol's blockchain system gives us complete confidence in our contributions to Public Voice.",
+    author: "Sarah Chen",
+    role: "Regular Donor",
+    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&auto=format&fit=crop&crop=face",
+  }
 ];
 
 export const Testimonials = () => {
   return (
-    <section className="py-20 bg-muted/30">
+    <section className="py-20 relative overflow-hidden">
+      <WaveBackground />
       <div className="container mx-auto px-4">
         <FadeIn>
           <h2 className="text-4xl font-bold text-center mb-16">Voices of Change</h2>

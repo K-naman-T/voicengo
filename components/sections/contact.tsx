@@ -5,10 +5,12 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { FadeIn } from "@/components/animations/fade-in";
 import { Mail, MapPin, Phone } from "lucide-react";
+import { WaveBackground } from "@/components/animations/background-effects";
 
 export const Contact = () => {
   return (
-    <section id="contact" className="py-20 bg-muted/30">
+    <section className="py-20 relative overflow-hidden">
+      <WaveBackground />
       <div className="container mx-auto px-4">
         <FadeIn>
           <h2 className="text-4xl font-bold text-center mb-16">Get Involved</h2>

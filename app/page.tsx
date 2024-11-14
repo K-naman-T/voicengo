@@ -15,6 +15,7 @@ import { FocusAreas } from "@/components/sections/focus-areas";
 import { Testimonials } from "@/components/sections/testimonials";
 import { Donation } from "@/components/sections/donation";
 import { Contact } from "@/components/sections/contact";
+import { AnimatedBackground } from "@/components/animations/animated-background";
 
 export default function Home() {
   const [theme, setTheme] = useState("light");

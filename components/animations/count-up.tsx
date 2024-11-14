@@ -13,7 +13,10 @@ interface CountUpProps {
 
 export const CountUp = ({ value, duration = 2, prefix = "", suffix = "" }: CountUpProps) => {
   const ref = useRef(null);
-  const [inViewRef, inView] = useInView({ once: true, margin: "-100px" });
+  const [inViewRef, inView] = useInView({
+    threshold: 1,
+    rootMargin: "-100px"
+  });
   const motionValue = useMotionValue(0);
   const springValue = useSpring(motionValue, {
     duration: duration * 1000,
