@@ -12,10 +12,10 @@ import {
 import { Hero } from "@/components/sections/hero";
 import { ImpactStats } from "@/components/sections/impact-stats";
 import { FocusAreas } from "@/components/sections/focus-areas";
-import { Testimonials } from "@/components/sections/testimonials";
+import { AboutUs } from "@/components/sections/about-us";
 import { Donation } from "@/components/sections/donation";
 import { Contact } from "@/components/sections/contact";
-import { AnimatedBackground } from "@/components/animations/animated-background";
+import { Team } from "@/components/sections/team";
 
 export default function Home() {
   const [theme, setTheme] = useState("light");
@@ -68,7 +68,8 @@ export default function Home() {
         <Hero />
         <ImpactStats />
         <FocusAreas />
-        <Testimonials />
+        <AboutUs />
+        <Team />
         <Donation />
         <Contact />
       </main>
