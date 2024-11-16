@@ -22,14 +22,6 @@ const team = [
     linkedin: "#",
     email: "rehber@publicvoice.org",
     achievements: ["MBBS, MD qualified", "Healthcare expert", "Financial management"]
-  },
-  {
-    name: "Dr. Shandeepan G",
-    role: "Health Program Director",
-    bio: "Leading our healthcare initiatives with 15 years of experience in public health and community medicine.",
-    linkedin: "#",
-    email: "sarah@publicvoice.org",
-    achievements: ["15+ years in healthcare", "Public health specialist", "Program management"]
   }
 ];
 

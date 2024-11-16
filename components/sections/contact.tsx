@@ -59,13 +59,13 @@ export const Contact = () => {
                 </a>
                 
                 <a 
-                  href="mailto:shandeepang@gmail.com"
+                  href="mailto:info@voicengo.org"
                   className="flex items-center gap-3 hover:text-primary transition-colors"
                 >
                   <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
                     <Mail className="text-primary h-5 w-5" />
                   </div>
-                  <span>shandeepang@gmail.com</span>
+                  <span>info@voicengo.org</span>
                 </a>
                 
                 <a 
