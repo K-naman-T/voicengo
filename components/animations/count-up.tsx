@@ -1,47 +1,47 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
-import { useInView } from "react-intersection-observer";
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { useSpring, animated } from "@react-spring/web";
 
 interface CountUpProps {
   value: number;
   duration?: number;
-  prefix?: string;
   suffix?: string;
+  separator?: string;
 }
 
-export const CountUp = ({ value, duration = 2, prefix = "", suffix = "" }: CountUpProps) => {
-  const ref = useRef(null);
-  const [inViewRef, inView] = useInView({
-    threshold: 1,
-    rootMargin: "-100px"
-  });
-  const motionValue = useMotionValue(0);
-  const springValue = useSpring(motionValue, {
-    duration: duration * 1000,
-    bounce: 0,
-  });
-  const [currentValue, setCurrentValue] = useState(0);
-
+export const CountUp = ({ 
+  value, 
+  duration = 2, 
+  suffix = "", 
+  separator = ""
+}: CountUpProps) => {
+  const [isClient, setIsClient] = useState(false);
+  
   useEffect(() => {
-    if (inView) {
-      motionValue.set(value);
-    }
-  }, [inView, value, motionValue]);
+    setIsClient(true);
+  }, []);
 
-  useEffect(() => {
-    const unsubscribe = springValue.on("change", (latest) => {
-      setCurrentValue(Math.round(latest));
-    });
-    return unsubscribe;
-  }, [springValue]);
+  const { number } = useSpring({
+    from: { number: 0 },
+    number: value,
+    delay: 200,
+    config: { duration: duration * 1000 },
+  });
+
+  if (!isClient) {
+    return <span>0{suffix}</span>;
+  }
 
   return (
-    <motion.span ref={inViewRef} className="tabular-nums">
-      {prefix}
-      {inView ? currentValue.toLocaleString() : "0"}
-      {suffix}
-    </motion.span>
+    <animated.span>
+      {number.to((n) => {
+        const formatted = Math.floor(n).toLocaleString('en-US', {
+          useGrouping: true,
+          maximumFractionDigits: 0
+        });
+        return `${formatted}${suffix}`;
+      })}
+    </animated.span>
   );
 };

@@ -4,6 +4,7 @@ import { FadeIn } from "@/components/animations/fade-in";
 import { CountUp } from "@/components/animations/count-up";
 import { GridBackground } from "@/components/animations/background-effects";
 import { useInView } from "react-intersection-observer";
+import { useEffect, useState } from "react";
 
 const stats = [
   { 
@@ -33,10 +34,17 @@ const stats = [
 ];
 
 export const ImpactStats = () => {
-  const [ref, inView] = useInView({
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const { ref, inView } = useInView({
+    threshold: 0.1,
     triggerOnce: true,
-    threshold: 0.2,
   });
+
+  useEffect(() => {
+    if (inView && !hasAnimated) {
+      setHasAnimated(true);
+    }
+  }, [inView, hasAnimated]);
 
   return (
     <section id="impact" className="py-20 relative overflow-hidden">
@@ -61,18 +69,21 @@ export const ImpactStats = () => {
           </p>
         </FadeIn>
         
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
           {stats.map((stat, index) => (
             <FadeIn key={index} delay={index * 0.1}>
-              <div className="text-center backdrop-blur-sm p-6 rounded-lg border border-primary/10 hover:border-primary/20 transition-colors">
-                <div className="text-4xl mb-3">{stat.icon}</div>
-                <div className="text-3xl md:text-4xl font-bold text-primary mb-2">
-                  {inView && (
+              <div className="text-center backdrop-blur-sm p-4 md:p-6 rounded-lg border border-primary/10 hover:border-primary/20 transition-colors">
+                <div className="text-3xl md:text-4xl mb-3">{stat.icon}</div>
+                <div className="text-2xl md:text-4xl font-bold text-primary mb-2">
+                  {hasAnimated ? (
                     <CountUp
                       value={stat.value}
                       suffix={stat.suffix}
                       duration={2}
+                      separator=","
                     />
+                  ) : (
+                    <span>0{stat.suffix}</span>
                   )}
                 </div>
                 <div className="text-sm md:text-base text-muted-foreground">
