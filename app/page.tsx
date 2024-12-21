@@ -12,7 +12,7 @@ export default function Home() {
       <ImpactStats />
       <FocusAreas />
       <AboutUs />
-      <Team />
+      <Team />    
       <Contact />
     </>
   );

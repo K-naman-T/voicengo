@@ -8,6 +8,7 @@ import {
   Heart, 
   IndianRupee,
   Bitcoin, 
+  Wallet,
   Shield,
   ArrowRight,
   CheckCircle2,

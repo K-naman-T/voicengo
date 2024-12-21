@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { FadeIn } from "@/components/animations/fade-in";
 import { Mail, MapPin, Phone, Loader2 } from "lucide-react";
+import { WaveBackground } from "@/components/animations/background-effects";
 import { useToast } from "@/hooks/use-toast";
 
 export const Contact = () => {
@@ -30,6 +31,7 @@ export const Contact = () => {
 
   return (
     <section id="contact" className="py-20 relative overflow-hidden">
+      <WaveBackground />
       <div className="container mx-auto px-4">
         <FadeIn>
           <h2 className="text-4xl font-bold text-center mb-4">Get Involved</h2>
