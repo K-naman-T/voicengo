@@ -4,8 +4,6 @@ import Link from "next/link";
 import { useState } from "react";
 import { Heart, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ModeToggle } from "@/components/theme/mode-toggle";
-import { cn } from "@/lib/utils";
 
 const impactItems = [
   {
@@ -84,7 +82,6 @@ export function Header() {
               ))}
             </ul>
           </nav>
-          <ModeToggle />
           <Button 
             asChild 
             className="ml-4"
